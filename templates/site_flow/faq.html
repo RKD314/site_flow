@@ -1,0 +1,73 @@
+{% load admin_static %}{% load firstof from future %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}site_flow: put together a cool website{% endblock %}</title>
+<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "site_flow/stylesheet.css" %}{% endblock %}" />
+{% block extrastyle %}{% endblock %}
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+<script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+</head>
+{% load i18n %}
+<body>
+	<div id="top_page"></div>
+	<nav>
+		<ul>
+			<!--<li><fix_small_space></li>-->
+			<li><a href="{% url 'site_flow:index' %}"><div id="logo_rect"><img src = "{% static "site_flow/site_logo.png" %}" height="40" width="auto" alt="site_flow: make a cool website"></div></a></li>
+			<li><fix_med_space></li>
+			<li><a href="{% url 'site_flow:about' %}"><div id="rect">about</div></a></li>
+			<li><fix_med_space><fix_small_space></li>
+			<li><div id="rect">FAQ</div></li>
+			<li><fix_med_space><fix_small_space></li>
+			<li><div id="rect">contact</div></li>		
+		</ul>
+	</nav>
+	<div id="page_content">
+		<b>These are the FAQs!</b>
+		<br /><br />
+		<i>
+		<a href="#aboot_faq">What's this aboot, eh?</a><br />
+		<a href="#how_cool_faq">How can it be so cool?</a><br />
+		<a href="#how_long_faq">For how long?</a><br />
+		</i>
+		
+		<br />
+		<br />
+		<br />
+				
+		<div id="aboot_faq"></div><b>What's this aboot, eh?</b><br />
+		<br />
+		Click the about button above to find out what it's aboot!<br /><br />
+		<a href="#top_page"><i>Top</i></a>
+		<br /><br /><br />
+
+		<div id="how_cool_faq"></div><b>How can it be so cool?</b><br />
+		<br />
+		It just is!<br /><br />
+		<a href="#top_page"><i>Top</i></a>		
+		<br /><br /><br />
+
+		<div id="how_long_faq"></div><b>For how long?</b><br />
+		<br />
+		Forever, we hope.  If not, here is a list of other possibilities:
+		<ul>
+			<li>Until the world ends;</li>
+			<li>Until never;</li>
+			<li>Until <b>your mother.</b></li>
+		</ul>
+		<br />
+		<a href="#top_page"><i>Top</i></a>
+		<br /><br /><br />
+		
+		<br />
+		<br />
+		
+		<a href="{% url 'site_flow:index' %}"><rectbut>go back home</rectbut></a>
+	</div>
+</body>
+</html>

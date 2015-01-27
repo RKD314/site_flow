@@ -1,0 +1,37 @@
+{% load admin_static %}{% load firstof from future %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}site_flow: put together a cool website{% endblock %}</title>
+<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "site_flow/stylesheet.css" %}{% endblock %}" />
+{% block extrastyle %}{% endblock %}
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+<script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+</head>
+{% load i18n %}
+<body>
+	<nav>
+		<ul>
+			<!--<li><fix_small_space></li>-->
+			<li><a href="{% url 'site_flow:index' %}"><div id="logo_rect"><img src = "{% static "site_flow/site_logo.png" %}" height="40" width="auto" alt="site_flow: make a cool website"></div></a></li>
+			<li><fix_med_space></li>
+			<li><a href="{% url 'site_flow:about' %}"><div id="rect">about</div></a></li>
+			<li><fix_med_space><fix_small_space></li>
+			<li><a href="{% url 'site_flow:faq' %}"><div id="rect">FAQ</div></a></li>
+			<li><fix_med_space><fix_small_space></li>
+			<li><div id="rect">contact</div></li>		
+		</ul>
+	</nav>
+	<br />
+	<big_space>Your website will be <b>cool</b>...
+	<br />
+	<ul>
+		<li><big_space></li>
+		<li><a href="http://www.facebook.com"><div id="nav_rect">go to another cool site<small_space><div id="fb_box"><small_space></div></div></a></li>
+	</ul>
+</body>
+</html>

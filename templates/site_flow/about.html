@@ -1,0 +1,54 @@
+{% load admin_static %}{% load firstof from future %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}site_flow: put together a cool website{% endblock %}</title>
+<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "site_flow/stylesheet.css" %}{% endblock %}" />
+{% block extrastyle %}{% endblock %}
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+<script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+</head>
+{% load i18n %}
+<body>
+	<nav>
+		<ul>
+			<!--<li><fix_small_space></li>-->
+			<li><a href="{% url 'site_flow:index' %}"><div id="logo_rect"><img src = "{% static "site_flow/site_logo.png" %}" height="40" width="auto" alt="site_flow: make a cool website"></div></a></li>
+			<li><fix_med_space></li>
+			<li><a href="{% url 'site_flow:about' %}"><div id="rect">about</div></a></li>
+			<li><fix_med_space><fix_small_space></li>
+			<li><a href="{% url 'site_flow:faq' %}"><div id="rect">FAQ</div></a></li>
+			<li><fix_med_space><fix_small_space></li>
+			<li><div id="rect">contact</div></li>		
+		</ul>
+	</nav>
+	<div id="page_content">
+		<b>What's this aboot, eh?</b>
+		<br />
+		<br />
+		This package will allow you to make a site for your Django web app!
+		<br />
+		It provides a skeleton to link the static pages of your app together...
+		<br />
+		You can link these to other pages in your app: user pages, input pages, etc.
+		<br />
+		<br />
+		A list of views in this skeleton:
+		<ul>
+			<li>An <b>index</b> page</li>
+			<li>An <b>about</b> page</li>
+			<li>An <b>FAQ</b> page</li>
+			<li>A <b>contact</b> form</li>
+		</ul>
+		<br />
+		Use the menu bar at the top to navigate to these pages.
+		<br />
+		<br />
+		<a href="{% url 'site_flow:index' %}"><rectbut>go back home</rectbut></a>
+	</div>
+</body>
+</html>

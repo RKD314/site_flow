@@ -1,0 +1,11 @@
+site_flow is a django app that  gives the skeleton of a website.
+Copy this package into a project, and modify the templates to fit the project content.
+Provide css and media files in the project.
+The package comes with a basic css file.
+
+The site skeleton includes the following views:
+
+	-Index
+	-About
+	-FAQ
+	-Contact
